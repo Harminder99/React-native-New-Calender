@@ -12,12 +12,15 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
+  Image,
+  TouchableOpacity
 } from "react-native";
-import { Button, Icon } from "native-base";
+import { Button } from "native-base";
 import Moment from "moment";
 import styles from "./CalendarStyle";
 import MonthList from "./MonthList";
+import Icon from "react-native-vector-icons";
 
 export default class Calendar extends Component {
   static propTypes = {
@@ -268,7 +271,7 @@ export default class Calendar extends Component {
       >
         <View style={[styles.container, mainBack]}>
           <View style={[styles.ctrl]}>
-            {isClearVisible && (
+            {/* {isClearVisible && (
               <TouchableHighlight
                 underlayColor="transparent"
                 activeOpacity={0.8}
@@ -278,13 +281,31 @@ export default class Calendar extends Component {
                   {this._i18n("clear", "text")}
                 </Text>
               </TouchableHighlight>
-            )}
-            <Icon
+            )} */}
+            {/* <Icon
               type="EvilIcons"
               name="close"
               style={{ position: "absolute", right: 20 }}
               onPress={this.cancel}
-            />
+            /> */}
+            <TouchableOpacity
+              style={{
+                position: "absolute",
+                right: 20,
+                top: 10
+              }}
+              onPress={this.cancel}
+            >
+              <Image
+                style={{
+                  width: 40,
+                  height: 40,
+                  paddingVertical: 10,
+                  paddingHorizontal: 10
+                }}
+                source={require("./Month/images/cancel_icon.png")}
+              />
+            </TouchableOpacity>
           </View>
           <View style={[styles.result, { marginTop: 5 }]}>
             <View
@@ -384,7 +405,11 @@ export default class Calendar extends Component {
               </Text>
             </Button>
           ) : (
-            <Button block disabled style={{ marginHorizontal: 20, marginVertical: 20 }}>
+            <Button
+              block
+              disabled
+              style={{ marginHorizontal: 20, marginVertical: 20 }}
+            >
               <Text
                 ellipsisMode="tail"
                 numberOfLines={1}

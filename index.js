@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import Calendar from "./Calendar";
 import Moment from "moment";
+import Icon from "react-native-vector-icons";
 
 export default class calendar extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class calendar extends Component {
   }
 
   componentWillMount() {
+    //Icon.loadFont();
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
     var year = new Date().getFullYear();

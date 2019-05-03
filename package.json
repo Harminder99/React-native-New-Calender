@@ -1,6 +1,6 @@
 {
   "name": "react_native_calendar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "Calendar select component for react-native, like Airbnb using native-base.",
   "main": "./Calendar.js",
